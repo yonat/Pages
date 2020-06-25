@@ -86,7 +86,7 @@ import UIKit
 
   // MARK: - Public methods
 
-  open func goTo(_ index: Int) {
+  open func goTo(_ index: Int, animated: Bool = true) {
     if index >= 0 && index < pages.count {
         let direction: UIPageViewController.NavigationDirection = (index > currentIndex) ? .forward : .reverse
       let viewController = pages[index]
@@ -95,7 +95,7 @@ import UIKit
       setViewControllers(
         [viewController],
         direction: direction,
-        animated: true,
+        animated: animated,
         completion: { [unowned self] finished in
           self.pagesDelegate?.pageViewController(
             self,
